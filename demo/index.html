@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>LATAE Gallery of pictures using JQuery</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<link href="http://fonts.googleapis.com/css?family=Oswald:300,400,700" media="screen" rel="stylesheet" type="text/css">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.js" type="text/javascript"></script>
+	<script src="js/jquery.scrollTo.js" type="text/javascript"></script>
+	<script src="js/jquery.nav.js" type="text/javascript"></script>
+	<script src="js/latae.js" type="text/javascript"></script>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<div class="navbar-collapse collapse" id="navbar">
+					<div class="col-sm-4"></div>
+					<ul class="nav navbar-nav col-sm-8">
+						<li >
+							<a href="#demo">Demo</a>
+						</li>
+						<li>
+							<a href="#how-to">How to use</a>
+						</li>
+						<li>
+							<a href="#api-options">API & options</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header> 
+
+	<section id="demo" class="container">
+		<h1>Demo - Galerie d'images responsive</h1>
+
+		<div class="gallery">
+			<a href="#"><figure class="picture" data-title="Titre de l'image 1" data-url="img/image1.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 2" data-url="img/image2.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 4" data-url="img/image4.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 5" data-url="img/image5.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 6" data-url="img/image6.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 7" data-url="img/image7.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 8" data-url="img/image8.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 9" data-url="img/image9.jpg"></figure></a>
+			<a href="#"><figure class="picture" data-title="Titre de l'image 10" data-url="img/image10.jpg"></figure></a>
+
+			<br style="clear: both;">
+		</div>
+	</section>
+
+	<section id="how-to" class="container">
+        <h2 class="title">1 - Include JS Files</h2>
+            <p>
+            	Latae uses 2 different Javascript scripts that you will have to import in this exact same order (in <code>&lt;head&gt;</code> or just before <code>&lt;/body&gt;</code>)
+            </p>
+            <pre class="php" name="code"> 
+&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/js/latae.js"&gt;&lt;/script&gt;
+            </pre>
+
+            <h2 class="title">2 -Fire plugin using jQuery Selector</h2>
+            <p></p>
+
+            <pre class="php" name="code">        
+&lt;script type="text/javascript"&gt;
+jQuery(function($){
+    $('.gallery').latae();
+
+    /**
+    * Or You can also use specific options
+    $('.gallery').latae({
+        max_height  : 350,        					//
+        margin      : 4,              				// 
+        target      : 'picture',        			// 
+        loader   	: 'img/loader.gif', 			// 
+        displayTitle: false,            			// 
+        figure      : {},              				// 
+        init    	: function(event, gallery) {},  // 
+        loadPicture : function(event, img) {}       // 
+    });
+    */
+});
+&lt;/script&gt;
+            </pre>
+            <p>If you want more info about available options go to the <a href="api.html">API &amp; Options</a></p>
+	</section>
+
+	<section id="api-options" class="container">
+        <h2>Available options</h2>
+        <p>You can pass options as <strong>key/value object</strong> to latae() function</p>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Key</th>
+                    <th style="width: 25%;">Default Value</th>
+                    <th style="width: 50%;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>max_height</td>
+                    <td>350</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>margin</td>
+                    <td>4</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>target</td>
+                    <td>picture</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>loader</td>
+                    <td>'img/loader.gif'</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>displayTitle</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>displayTitle</td>
+                    <td>false</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>figure</td>
+                    <td>{}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>init</td>
+                    <td>function(event, gallery){}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>loadPicture</td>
+                    <td>function(event, img){}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+	</section>
+
+	<script>
+	$(document).ready(function(){
+	    $(".gallery").latae({
+	        loader : 'img/loader.gif',
+	        init : function() { console.log('bonjour'); },
+	        loadPicture : function(event, img) { console.log($(img)); },
+	        resize : function(event, gallery) { console.log(gallery); },
+	        displayTitle: true
+	    });
+
+	    $('.navbar ul').onePageNav({});	
+	});
+	</script>
+</body>
+</html>
